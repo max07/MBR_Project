@@ -20,11 +20,20 @@ int main() {
     for(int i=0; i < 10197; ++i){
         //infile >> criticRating[i];
         cin>>criticRating[i];
-        orderRating(mk(abs(criticRating[i]-rating),i));
+        orderRating[i] = (mp(abs(criticRating[i]-rating),i));
     }
     //infile.close();
 //
     sort(orderRating.begin(),orderRating.end());
-    cout<<"Top 5 recommended movies are: "<<orderRating[0].s<<" "<<orderRating[1].s<<" "<<orderRating[2].s<<" "<<orderRating[3].s<<" "<<orderRating[4].s<<endl;
-  return 0;
+    cout<<"Top recommended movies are: \n";
+    //<<orderRating[0].s<<" "<<orderRating[1].s<<" "<<orderRating[2].s<<" "<<orderRating[3].s<<" "<<orderRating[4].s<<endl;
+  int flag = 0, i =0;
+    while(flag != 2 && i < 10196){
+      cout<<orderRating[i].s;
+        if(orderRating[i+1].f != orderRating[i].f)
+            ++flag;
+        ++i;
+  }
+    
+    return 0;
 }
